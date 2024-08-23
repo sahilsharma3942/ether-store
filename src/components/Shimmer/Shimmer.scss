@@ -1,0 +1,17 @@
+.shimmer-wrapper{
+
+
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+
+    .card-shimmer {
+        width: 280px;
+        display: flex;
+        gap: 10px;
+        border: none;
+        background-color: rgb(225, 225, 225);
+        height: 487px;
+    }
+}
