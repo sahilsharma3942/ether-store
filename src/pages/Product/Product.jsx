@@ -6,12 +6,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BalanceIcon from "@mui/icons-material/Balance";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 const Product = () => {
   const id = useParams().id;
   const {data} = useFetch(`https://fakestoreapi.com/products/${id}`)
   const [quantity, setQuantity] = useState(1);
-
+  const dispatch = useDispatch();
 
   return (
     <div className="product">
@@ -47,6 +49,10 @@ const Product = () => {
             </div>
             <button
               className="add"
+              onClick={()=>dispatch(addToCart({
+                ...data,
+                quantity:quantity
+              }))}
             >
               <AddShoppingCartIcon /> ADD TO CART
             </button>
